@@ -37,5 +37,5 @@ ENV PATH="/opt/venv/bin:$PATH"
 EXPOSE 8080
 
 # Start the backend server
-CMD ["bash", "/app/web/start_server.sh", "0.0.0.0", "8080"]
+CMD ["bash", "/app/web/start_server.sh", "0.0.0.0", "8000"]
 
