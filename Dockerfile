@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Copy backend files
-COPY search /app/search
+COPY web /app/web
 
 # Create virtual environment and install dependencies
 RUN python3 -m venv /opt/venv \
