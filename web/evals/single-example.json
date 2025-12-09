@@ -1,0 +1,7 @@
+{
+    "evals": [{
+        "table_name": "world_bank_development_indicators",
+        "prompt": "Fetch the names of all countries with an average precipitation of greater than 326.",
+        "expected_query": "SELECT country FROM world_bank_development_indicators WHERE avg_precipitation > 326;"
+    }]
+}

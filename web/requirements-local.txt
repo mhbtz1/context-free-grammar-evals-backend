@@ -1,0 +1,8 @@
+# Local development requirements for Mac with LibreSSL
+# Use this if you get LibreSSL warnings: pip install -r requirements-local.txt
+
+-r requirements.txt
+
+# Override urllib3 for LibreSSL compatibility on Mac
+urllib3<2.0.0
+
