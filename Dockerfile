@@ -21,21 +21,20 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Copy backend files
-COPY web /app/web
+COPY web ./web
 
 # Create virtual environment and install dependencies
-RUN python3 -m venv /opt/venv \
-    && /opt/venv/bin/pip install --upgrade pip \
-    && /opt/venv/bin/pip install -r /app/web/requirements.txt \
-    && /opt/venv/bin/python -m nltk.downloader \
-        punkt averaged_perceptron_tagger stopwords
+RUN python3 -m venv /opt/venv && \
+    . /opt/venv/bin/activate && \
+    pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r ./web/requirements.txt
 
-# Set PATH to use virtual environment
+ENV VIRTUAL_ENV=/opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
 # Expose backend port
-EXPOSE 8080
+EXPOSE 8000
 
 # Start the backend server
-CMD ["bash", "/app/web/start_server.sh", "0.0.0.0", "8000"]
+CMD ["bash", "./web/start_server.sh", "0.0.0.0", "8000"]
 
