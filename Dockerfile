@@ -26,7 +26,7 @@ COPY web /app/web
 # Create virtual environment and install dependencies
 RUN python3 -m venv /opt/venv \
     && /opt/venv/bin/pip install --upgrade pip \
-    && /opt/venv/bin/pip install -r search/requirements.txt \
+    && /opt/venv/bin/pip install -r /app/web/requirements.txt \
     && /opt/venv/bin/python -m nltk.downloader \
         punkt averaged_perceptron_tagger stopwords
 
